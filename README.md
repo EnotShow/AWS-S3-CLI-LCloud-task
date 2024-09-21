@@ -7,15 +7,10 @@ LCloud test task
 ```
 git clone https://github.com/EnotShow/LCloud-task/
 ```
-2. Install dependencies
+2. Install package
 ```
-pip3 install -r LCloud-task/requirements.txt
-```
-3. Install script as terminal cli
-```
-chmod +x LCloud-task/main.py
-sudo mv -R LCloud-task /usr/local/bin/LCloud-task
-sudo ln -s /usr/local/bin/LCloud-task/main.py /usr/local/bin/lcloud
+cd LCloud
+pip3 install .
 ```
 
 ### Usage

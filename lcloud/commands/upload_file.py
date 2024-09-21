@@ -3,8 +3,8 @@ import sys
 import click
 from botocore.exceptions import ClientError
 
-from aws_client import aws_client
-from exceptions import CredentialsError
+from lcloud.aws_client import aws_client
+from lcloud.exceptions import CredentialsError
 
 
 @click.command(name='upload')

@@ -1,9 +1,9 @@
 import click
 
-from src.delete_files import delete_files
-from src.upload_file import upload_file
-from src.auth import auth
-from src.list_files import list_files
+from lcloud.commands.delete_files import delete_files
+from lcloud.commands.upload_file import upload_file
+from lcloud.commands.auth import auth
+from lcloud.commands.list_files import list_files
 
 
 @click.group()
@@ -19,7 +19,10 @@ def add_commands():
     cli.add_command(delete_files)
 
 
-if __name__ == '__main__':
+def main():
     add_commands()
     cli()
 
+
+if __name__ == '__main__':
+    main()

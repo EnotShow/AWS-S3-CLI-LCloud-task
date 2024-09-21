@@ -1,8 +1,8 @@
 import sys
 
 import click
-from aws_client import aws_client
-from exceptions import CredentialsError
+from lcloud.aws_client import aws_client
+from lcloud.exceptions import CredentialsError
 
 
 def prompt_for_credentials():

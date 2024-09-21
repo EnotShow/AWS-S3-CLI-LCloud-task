@@ -1,7 +1,7 @@
 import boto3
 import keyring
 
-from exceptions import CredentialsError
+from lcloud.exceptions import CredentialsError
 
 
 class AWSClient:
