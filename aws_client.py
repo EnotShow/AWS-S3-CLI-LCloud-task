@@ -6,13 +6,8 @@ from exceptions import CredentialsError
 
 
 class AWSClient:
-    aws_access_key_id = None
-    aws_secret_access_key = None
 
     def auth(self, aws_access_key_id, aws_secret_access_key):
-        self.aws_access_key_id = aws_access_key_id
-        self.aws_secret_access_key = aws_secret_access_key
-
         os.environ['AWS_ACCESS_KEY_ID'] = aws_access_key_id
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_secret_access_key
 
