@@ -7,7 +7,7 @@ from aws_client import aws_client
 from exceptions import CredentialsError
 
 
-@click.command()
+@click.command(name='list')
 @click.option('--bucket', required=True, help='The name of the S3 bucket.')
 def list_files(bucket):
     """List all files in an S3 bucket."""
