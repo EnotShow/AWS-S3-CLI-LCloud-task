@@ -2,7 +2,7 @@ import sys
 
 import click
 from aws_client import aws_client
-from src.exceptions import CredentialsError
+from exceptions import CredentialsError
 
 
 def prompt_for_credentials():
@@ -22,11 +22,9 @@ def auth():
     """
     try:
         access_key, secret_key = prompt_for_credentials()
-        print(access_key, secret_key)
         if not access_key or not secret_key:
             raise CredentialsError("Access Key ID or Secret Access Key not provided")
         aws_client.auth(access_key, secret_key)
-        aws_client.test_credentials()
     except CredentialsError as e:
         print(e)
         sys.exit(1)

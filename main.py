@@ -2,6 +2,7 @@ import click
 
 
 from src.auth import auth
+from src.list_files import list_files
 
 
 @click.group()
@@ -12,6 +13,7 @@ def cli():
 
 def add_commands():
     cli.add_command(auth)
+    cli.add_command(list_files)
 
 
 if __name__ == '__main__':
