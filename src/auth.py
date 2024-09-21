@@ -15,12 +15,15 @@ def prompt_for_credentials():
 
 
 @click.command()
-def auth():
+@click.option('--access-key', required=False, help='The AWS Access Key ID.')
+@click.option('--secret-key', required=False, help='The AWS Secret Access Key.')
+def auth(access_key, secret_key):
     """
     Authenticates the AWS client with prompted credentials.
     """
     try:
-        access_key, secret_key = prompt_for_credentials()
+        if not access_key or not secret_key:
+            access_key, secret_key = prompt_for_credentials()
         if not access_key or not secret_key:
             raise CredentialsError("Access Key ID or Secret Access Key not provided")
         aws_client.auth(access_key, secret_key)

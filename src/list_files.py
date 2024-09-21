@@ -11,12 +11,13 @@ from exceptions import CredentialsError
 @click.command(name='list')
 @click.option('--bucket', required=True, help='The name of the S3 bucket.')
 @click.option('--regex', required=False, help='Specify a file regex filter.')
-def list_files(bucket, regex):
+@click.option('--prefix', required=False, help='Specify a prefix filter.')
+def list_files(bucket, regex, prefix):
     """List files in an S3 bucket."""
     try:
         s3 = aws_client.get_client()
 
-        response = s3.list_objects_v2(Bucket=bucket)
+        response = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
         if 'Contents' in response:
             if regex:
                 pattern = re.compile(regex)

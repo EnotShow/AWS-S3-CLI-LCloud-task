@@ -11,11 +11,12 @@ from exceptions import CredentialsError
 @click.command(name='delete')
 @click.option('--bucket', required=True, help='The name of the S3 bucket.')
 @click.option('--regex', required=True, help='Regex pattern to match files to delete.')
-def delete_files(bucket, regex):
+@click.option('--prefix', required=False, help='Prefix to match files to delete.')
+def delete_files(bucket, regex, prefix):
     """Delete all files matching a regex."""
     try:
         s3 = aws_client.get_client()
-        response = s3.list_objects_v2(Bucket=bucket)
+        response = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
         if 'Contents' in response:
             pattern = re.compile(regex)
             delete_keys = [{'Key': obj['Key']} for obj in response['Contents'] if pattern.match(obj['Key'])]
