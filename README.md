@@ -20,7 +20,7 @@ pip3 install .
 lcloud auth
 ```
 ```
-lcloud --access-key {access-key} --secret-key {secret-key}
+lcloud auth --access-key {access-key} --secret-key {secret-key}
 ```
 
 #### List bucket files
@@ -30,10 +30,10 @@ lcloud list --bucket {bucket} --regex {regex} --prefix {prefix}
 
 #### List upload file
 ```
-lcloud --bucket {bucket} --file {local-file-path} --key {key} --prefix {prefix}
+lcloud upload --bucket {bucket} --file {local-file-path} --key {key} --prefix {prefix}
 ```
 
 #### Delete files
 ```
-lcloud --bucket {bucket} --regex {regex} --prefix {prefix}
+lcloud delete --bucket {bucket} --regex {regex} --prefix {prefix}
 ```
