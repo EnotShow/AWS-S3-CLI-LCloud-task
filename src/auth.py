@@ -17,8 +17,7 @@ def prompt_for_credentials():
 @click.command()
 def auth():
     """
-    Returns an S3 client using interactively prompted credentials.
-    Supports optional role assumption.
+    Authenticates the AWS client with prompted credentials.
     """
     try:
         access_key, secret_key = prompt_for_credentials()

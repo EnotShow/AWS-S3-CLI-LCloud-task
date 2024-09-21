@@ -12,7 +12,7 @@ from exceptions import CredentialsError
 @click.option('--bucket', required=True, help='The name of the S3 bucket.')
 @click.option('--regex', required=False, help='Specify a file regex filter.')
 def list_files(bucket, regex):
-    """List all files in an S3 bucket."""
+    """List files in an S3 bucket."""
     try:
         s3 = aws_client.get_client()
 

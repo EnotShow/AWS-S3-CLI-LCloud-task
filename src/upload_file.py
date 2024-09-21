@@ -11,7 +11,7 @@ from exceptions import CredentialsError
 @click.option('--bucket', required=True, help='The name of the S3 bucket.')
 @click.option('--file', required=True, type=click.Path(exists=True), help='Path to the local file.')
 def upload_file(bucket, file, key):
-    """Upload a local file to a defined location in the bucket with prompted credentials."""
+    """Upload a local file to an S3 bucket."""
     try:
         s3 = aws_client.get_client()
         s3.upload_file(file, bucket, key)
